@@ -32,6 +32,8 @@ public class PracticeFormTest {
 			e.printStackTrace();
 		}
 		driver.manage().window().maximize();
+		
+	
 	}
 
 	@Test
@@ -55,6 +57,7 @@ public class PracticeFormTest {
 		Pattern SubmitButton = new Pattern(filepath + "SubmitButton.png");
 		Pattern ThanksForSubmitMessage = new Pattern(filepath + "ThanksForSubmitMessage.png");
 		Pattern MobileNumber = new Pattern(filepath + "MobileNumber.png");
+		Pattern FIleuploadOpenButton = new Pattern(filepath + "FIleuploadOpenButton.png");
 		Screen s = new Screen();
 		try {
 			Thread.sleep(10000);
@@ -71,9 +74,16 @@ public class PracticeFormTest {
 			s.type(Email,"vp@gmail.com");
 			
 			s.click(FemaleRadioButton);
-			
-			
+				
 			s.type(MobileNumber,"1234567890");
+			
+			s.type(Subject,"Cucumber");
+			
+			s.click(SportsCheckBox);
+			
+			s.type(ChooseFileButton, filepath + "log.doc");
+			
+			s.click(FIleuploadOpenButton);
 			
 			
 		} catch (FindFailed e) {
